@@ -509,7 +509,7 @@ def generate_enhanced_call_analysis():
     }
 
 def create_ai_analysis_flow(selected_call):
-    st.markdown("## 🤖 AI Call Analysis")
+    st.markdown("## 🤖 Call Analysis")
     
     # Display voicemail instead of transcript
     st.markdown("### 📝 Voicemail Message")
@@ -533,13 +533,13 @@ def create_ai_analysis_flow(selected_call):
     st.markdown("---")
     # Initial state - show analyze button
     if st.session_state.analysis_stage == 'initial':
-        if st.button("🔍 Start AI Analysis", key=f"analyze_transcript_{selected_call['call_id']}", type="primary"):
+        if st.button("🔍 Analyze Voice Mail", key=f"analyze_transcript_{selected_call['call_id']}", type="primary"):
             st.session_state.analysis_stage = 'analyzing'
             st.rerun()
 
     # Analysis in progress
     elif st.session_state.analysis_stage == 'analyzing':
-        status = st.status("🔄 AI Analysis in Progress...", expanded=True)
+        status = st.status("🔄 Analysis in Progress...", expanded=True)
         with status:
             # Generate enhanced analysis
             enhanced_analysis = generate_enhanced_call_analysis()
@@ -548,7 +548,7 @@ def create_ai_analysis_flow(selected_call):
             st.write("🎯 Initializing analysis pipeline...")
             time.sleep(0.5)
             
-            st.write("🧠 Processing natural language understanding...")
+            st.write("🧠 Processing language understanding...")
             time.sleep(1)
             
             st.write("📊 Analyzing sentiment patterns...")
@@ -761,7 +761,7 @@ if st.button("🔄 Clear Cache and Reload", key="clear_cache_button"):
     st.rerun()
 
 # Dashboard title
-st.title("📞 Pharmacy Voicemail Dashboard")
+st.title("📞 Daily Voicemails")
 
 # Calculate metrics
 total_calls = len(st.session_state.static_calls)
