@@ -763,10 +763,6 @@ if st.button("🔄 Clear Cache and Reload", key="clear_cache_button"):
 # Dashboard title
 st.title("📞 Pharmacy Voicemail Dashboard")
 
-# Add button to trigger AI Analysis for all calls
-if st.button("🤖 Run AI Analysis on All Voicemails", key="run_all_analysis_button", type="primary"):
-    st.session_state.show_ai_analysis = True
-
 # Calculate metrics
 total_calls = len(st.session_state.static_calls)
 urgent_calls = len([c for c in st.session_state.static_calls if c["status"] == "Urgent"])
